@@ -19,6 +19,43 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [ alacritty git tdesktop neofetch ];
+  home.sessionVariables = {
+    TERMINAL="kitty";
+  };
 
+  home.packages = with pkgs; [ kitty git tdesktop neofetch ];
+  
+  programs.kitty = {
+    enable = true;
+    settings = {
+      background_opacity = "0.9";
+      font_size = "14.0";
+      font_family      = "FiraCode Nerd Font";
+      bold_font        = "auto";
+      italic_font      = "auto";
+      bold_italic_font = "auto";
+
+      background            = "#212224";
+      foreground            = "#ededed";
+      cursor                = "#dfd9b8";
+      selection_background  = "#384563";
+      color0                = "#000000";
+      color8                = "#5c4f49";
+      color1                = "#cf0d17";
+      color9                = "#ef7d17";
+      color2                = "#128033";
+      color10               = "#b1d130";
+      color3                = "#ffca3d";
+      color11               = "#fff11f";
+      color4                = "#006ab3";
+      color12               = "#4fc2fd";
+      color5                = "#6a2674";
+      color13               = "#de0070";
+      color6                = "#384563";
+      color14               = "#5c4f49";
+      color7                = "#ededed";
+      color15               = "#fefffe";
+      selection_foreground = "#212224";
+    };
+  };
 }
