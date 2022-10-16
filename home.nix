@@ -23,14 +23,22 @@
     TERMINAL="kitty";
   };
 
-  home.packages = with pkgs; [ kitty git tdesktop neofetch ];
-  
+  home.packages = with pkgs; [ 
+    kitty
+    git
+    tdesktop
+    neofetch
+    neovim
+    nodejs
+    yarn
+   ];
+
   programs.kitty = {
     enable = true;
     settings = {
       background_opacity = "0.9";
       font_size = "14.0";
-      font_family      = "FiraCode Nerd Font";
+      font_family      = "FiraCode Retina";
       bold_font        = "auto";
       italic_font      = "auto";
       bold_italic_font = "auto";

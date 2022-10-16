@@ -16,10 +16,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.device = "/dev/nvme0n1";
 
+  # Get latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -42,6 +45,9 @@
   services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  
+  fonts.fonts = with pkgs; [ fira-code ];
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
@@ -52,10 +58,11 @@
       wf-recorder
       mako # notification daemon
       grim
-     #kanshi
+      #kanshi
       slurp
       alacritty # Alacritty is the default terminal in the config
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+      unityhub
     ];
     extraSessionCommands = ''
       export SDL_VIDEODRIVER=wayland
@@ -65,8 +72,6 @@
       export MOZ_ENABLE_WAYLAND=1
     '';
   };
-
-  programs.waybar.enable = true;
 
   # QT
   programs.qt5ct.enable = true;
@@ -99,12 +104,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    wpa_supplicant
     vim
     wget
     wayland
     sway
     cmatrix
     ripgrep
+    gcc
+    clang
+    glibc
+    gdb
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
