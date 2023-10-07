@@ -2,9 +2,9 @@
   description = "My Home for NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
     home-manager = {
-      url = github:nix-community/home-manager/release-22.05;
+      url = github:nix-community/home-manager/release-23.05;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -37,7 +37,7 @@
         inherit system pkgs;
         homeDirectory = "/home/ewan";
         username = "ewan";
-        stateVersion = "22.05";
+        stateVersion = "23.05";
         configuration = {
           imports = [
             ./home.nix

@@ -177,6 +177,11 @@ default_border pixel 2
 #
 # Resizing containers:
 #
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
