@@ -32,6 +32,7 @@
     nodejs
     yarn
     brave
+    jetbrains.clion
    ];
 
   programs.kitty = {
