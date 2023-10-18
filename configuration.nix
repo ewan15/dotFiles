@@ -52,8 +52,8 @@
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
     extraPackages = with pkgs; [
-      swaylock
       swayidle
+      swaylock-effects
       wl-clipboard
       wf-recorder
       mako # notification daemon
@@ -105,20 +105,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wpa_supplicant
-    vim
-    wget
+  # UI
     wayland
     sway
+    waybar
+  # Networking
+    wpa_supplicant
+
+  # Utility
+    vim
+    wget
     cmatrix
     ripgrep
     gcc
+    cmake
     clang
     glibc
     gdb
     liburing
     linuxHeaders
-    qbittorrent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
